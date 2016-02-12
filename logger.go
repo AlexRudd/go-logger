@@ -50,7 +50,7 @@ func log(mes *LogMessage, stderr bool) {
 //Call only at top level after everything has been cleared up
 func Fatal(m ...interface{}) {
 	ci := retrieveCallInfo()
-	log(&LogMessage{fmt.Sprint(ci.packageName, "/", ci.fileName, ":", ci.line), "FATAL", fmt.Sprint(m...), now()}, true)
+	log(&LogMessage{fmt.Sprint(ci.packageFullName, "/", ci.fileName, ":", ci.line), "FATAL", fmt.Sprint(m...), now()}, true)
 	os.Exit(1)
 }
 
